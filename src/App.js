@@ -1,23 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
-
+import DessertList from './DessertsList';
+import { useContext, useEffect, useState } from 'react';
+import { validateEmail } from './util';
+import { UserContext, useUser } from './userContext';
+const PasswordErrorMessage = () => {
+  return (
+    <p className="FieldError">Password should have at least 8 characters</p>
+  );
+};
 function App() {
+  const {user}  = useUser()
+  console.log(user)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+   acb
     </div>
   );
 }
