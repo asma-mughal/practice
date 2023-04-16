@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { useTheme } from './ThemeContext';
 import Switch from './Switch/index';
+import PracticeMemo from './PracticeMemo';
 const Title = ({ children }) => {
   const { theme } = useTheme();
   return (
@@ -69,6 +70,7 @@ function App() {
     >
       <Header />
       <Page />
+      <PracticeMemo />
     </div>
   );
 }
