@@ -1,20 +1,74 @@
 import logo from './logo.svg';
 import './App.css';
-import DessertList from './DessertsList';
-import { useContext, useEffect, useState } from 'react';
-import { validateEmail } from './util';
-import { UserContext, useUser } from './userContext';
-const PasswordErrorMessage = () => {
+import { useTheme } from './ThemeContext';
+import Switch from './Switch/index';
+const Title = ({ children }) => {
+  const { theme } = useTheme();
   return (
-    <p className="FieldError">Password should have at least 8 characters</p>
+    <h2
+      style={{
+        color: theme === "light" ? "black" : "white",
+      }}
+    >
+      {children}
+    </h2>
+  );
+};
+
+const Paragraph = ({ children }) => {
+  const { theme } = useTheme();
+  return (
+    <p
+      style={{
+        color: theme === "light" ? "black" : "white",
+      }}
+    >
+      {children}
+    </p>
+  );
+};
+
+const Content = () => {
+  return (
+    <div>
+      <Paragraph>
+        We are a pizza loving family. And for years, I searched and searched and
+        searched for the perfect pizza dough recipe. I tried dozens, or more.
+        And while some were good, none of them were that recipe that would
+        make me stop trying all of the others.
+      </Paragraph>
+    </div>
+  );
+};
+
+const Header = () => {
+  return (
+    <header>
+      <Title>Little Lemon 🍕</Title>
+      <Switch />
+    </header>
+  );
+};
+
+const Page = () => {
+  return (
+    <div className="Page">
+      <Title>When it comes to dough</Title>
+      <Content />
+    </div>
   );
 };
 function App() {
-  const {user}  = useUser()
-  console.log(user)
+  const { theme } = useTheme();
   return (
-    <div className="App">
-   acb
+    <div
+      className="App"
+      style={{
+        backgroundColor: theme === "light" ? "white" : "black",
+      }}
+    >
+      <Header />
+      <Page />
     </div>
   );
 }
